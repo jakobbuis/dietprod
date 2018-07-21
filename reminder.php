@@ -10,8 +10,8 @@ $twilio = new Client($config['twilio']['sip'], $config['twilio']['token']);
 
 foreach ($config['clients'] as $client) {
     // Determine if it's time for a message
-    $moment = Carbon::now()->format('Y-m-d')  . ' '  . $client['moment'];
-    $now = Carbon::now()->format('Y-m-d H:i');
+    $moment = Carbon::now('Europe/Amsterdam')->format('Y-m-d')  . ' '  . $client['moment'];
+    $now = Carbon::now('Europe/Amsterdam')->format('Y-m-d H:i');
     if ($moment !== $now) {
         echo 'Not sending message to '.$client['number'] . PHP_EOL;
         continue;
