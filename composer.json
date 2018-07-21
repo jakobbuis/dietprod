@@ -1,0 +1,14 @@
+{
+    "name": "jakobbuis/habitprod",
+    "description": "Send regular reminders to yourself to stick your habits",
+    "type": "project",
+    "require": {
+        "twilio/sdk": "^5.20"
+    },
+    "authors": [
+        {
+            "name": "Jakob Buis",
+            "email": "jakob@jakobbuis.nl"
+        }
+    ]
+}
