@@ -26,7 +26,7 @@ foreach ($config['clients'] as $client) {
     ]);
 }
 
-function writeLog(string $message, int $level = LOG_INFO) : void
+function writeLog(string $message) : void
 {
-    syslog($level, 'Habitprod: ' . $message);
+    syslog(LOG_INFO, 'Habitprod: ' . $message);
 }
