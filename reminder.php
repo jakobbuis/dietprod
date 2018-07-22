@@ -18,7 +18,7 @@ foreach ($config['clients'] as $client) {
     }
 
     // Send a message
-    writeLog(LOG_INFO, 'Sending message to ' . $client['number']);
+    writeLog('Sending message to ' . $client['number']);
     $message = $client['messages'][array_rand($client['messages'])];
     $twilio->messages->create($client['number'], [
         'from' => $config['twilio']['from_number'],
