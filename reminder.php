@@ -13,15 +13,20 @@ foreach ($config['clients'] as $client) {
     $moment = Carbon::now('Europe/Amsterdam')->format('Y-m-d')  . ' '  . $client['moment'];
     $now = Carbon::now('Europe/Amsterdam')->format('Y-m-d H:i');
     if ($moment !== $now) {
-        echo 'Not sending message to '.$client['number'] . PHP_EOL;
+        writeLog('Not sending message to ' . $client['number']);
         continue;
     }
 
     // Send a message
-    echo 'Sending message to '.$client['number'] . PHP_EOL;
+    writeLog(LOG_INFO, 'Sending message to ' . $client['number']);
     $message = $client['messages'][array_rand($client['messages'])];
     $twilio->messages->create($client['number'], [
         'from' => $config['twilio']['from_number'],
         'body' => $message,
     ]);
+}
+
+function writeLog(string $message, int $level = LOG_INFO) : void
+{
+    syslog($level, 'Habitprod: ' . $message);
 }
