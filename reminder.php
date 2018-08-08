@@ -3,9 +3,8 @@
 use Carbon\Carbon;
 use Twilio\Rest\Client;
 
-require __DIR__ . '/vendor/autoload.php';
+require __DIR__.'bootstrap.php';
 
-$config = require __DIR__ . '/config.php';
 $twilio = new Client($config['twilio']['sip'], $config['twilio']['token']);
 
 foreach ($config['clients'] as $client) {
@@ -24,9 +23,4 @@ foreach ($config['clients'] as $client) {
         'from' => $config['twilio']['from_number'],
         'body' => $message,
     ]);
-}
-
-function writeLog(string $message) : void
-{
-    syslog(LOG_INFO, 'Habitprod: ' . $message);
 }
