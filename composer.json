@@ -4,7 +4,8 @@
     "type": "project",
     "require": {
         "twilio/sdk": "^5.20",
-        "nesbot/carbon": "^1.32"
+        "nesbot/carbon": "^1.32",
+        "predis/predis": "^1.1"
     },
     "authors": [
         {
