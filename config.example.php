@@ -10,7 +10,10 @@ return [
     'clients' => [
         [
             'number' => '',
-            'moment' => '',
+            'moment' => [
+                'from' => '',
+                'till' => '',
+            ],
             'messages' => [
             ],
         ],
