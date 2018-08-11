@@ -6,14 +6,14 @@ use Twilio\Rest\Client as TwilioClient;
 
 require __DIR__.'/bootstrap.php';
 
-$twilio = new TwillioClient($config['twilio']['sip'], $config['twilio']['token']);
+$twilio = new TwilioClient($config['twilio']['sip'], $config['twilio']['token']);
 $redis = new PredisClient;
 
 foreach ($config['clients'] as $client) {
     // get the desired moment to send the message
     $moment = new Carbon($redis->get($client['number']));
     $now = Carbon::now('Europe/Amsterdam');
-    $now->seconds = 0;
+    $now->second = 0;
 
     // Determine if it's time for a message
     if ($moment !== $now) {
