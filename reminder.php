@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * Reminder fires an SMS message on the previously determined moment
+ * stored in the planning phase (planning.php) in Redis.
+ */
 use Carbon\Carbon;
 use Predis\Client as PredisClient;
 use Twilio\Rest\Client as TwilioClient;

@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * For each client, an interval is set in configuration.
+ * Planning selects a random minute in that interval, and stores
+ * it in Redis. At that moment, a message is sent (reminder.php).
+ */
 use Carbon\Carbon;
 use Predis\Client;
 
