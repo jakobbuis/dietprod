@@ -16,7 +16,7 @@ foreach ($config['clients'] as $client) {
     $now->second = 0;
 
     // Determine if it's time for a message
-    if ($moment !== $now) {
+    if (!$moment->eq($now)) {
         writeLog('Not sending message to ' . $client['number']);
         continue;
     }
